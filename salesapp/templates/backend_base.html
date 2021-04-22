@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %} XYZ Corportation Ltd. {% endblock %}</title>
+    {% load static %}
+
+    <!-- css links -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'salesapp/css/style.css' %}"
+    />
+    
+    <!-- bootstrap links -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/ae06f41507.js"
+      crossorigin="anonymous"
+    ></script>
+    
+
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Baskervville|Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+    <!-- Tempus Dominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+ 
+    <div class = "container-fluid base-container">
+        <div class= "row base-row">
+            
+            <div class= "col-sm-12 col-md-6 col-lg-2  col-xl-2 p-0 bg-emr">
+              <!-- greetings -->
+              <h5 class="p-4 pb-2 font-white"> Hello, <span style="text-transform:capitalize;">{{request.user.username}} !</span></h5>
+              
+              <!-- navigation part -->
+              {% include 'salesapp/nav.html' %}
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-10 col-xl-10">
+                <!-- rest of the body -->
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+
+  
+  
+</body>
+</html>

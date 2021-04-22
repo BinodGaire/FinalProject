@@ -1,0 +1,49 @@
+{% extends 'frontend_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class = "background" id="homepageBackground">
+  <div class="layer">
+  
+    <div class="login-form text-center py-5">
+      <div class="gap-1"></div>
+      <img src="{% static "salesapp/img/logo.png" %}" alt="Logo" width="100px" class="mb-3">
+      <p class="caption-head mb-0" >XYZ Corporation Ltd.</p>
+      <div class="gap-3"></div>
+        <form method="post" action=".">
+        
+          {% csrf_token %}
+          <div class="error container">
+            
+            
+              {% for error in form.non_field_errors %}
+              <div class="alert alert-danger" role="alert">
+                <p>{{error}} </p>
+              </div>
+              {% endfor %}
+           
+            
+          </div>
+
+          
+
+          
+          <div class="username-section p-2">
+            {{form.username}}
+          </div>
+          <div class="password-section p-2">
+            {{form.password}}
+          </div>
+          
+          <div class="submit-section p-2">
+            <button type="submit" class="login-btn">LOG IN</button>
+          </div>
+
+        </form>
+        
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

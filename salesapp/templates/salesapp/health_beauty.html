@@ -1,0 +1,105 @@
+{% extends 'backend_base.html' %}
+
+
+
+{% block content %}
+
+<h4 class="text-center"> Health and Beauty Products Sales </h4>
+
+  <div id="container" >
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <canvas id = "monthly-sales-chart"></canvas>
+            <div class="gap-1"></div>
+            <p class="text-center">Total sales by Month</p> 
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <canvas id = "customer-gender-chart"></canvas>
+            <div class="gap-1"></div>
+            <p class="text-center">Total sales by Gender</p> 
+        </div>
+    </div>
+    <div class="gap-2"></div>
+    <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7">
+            <canvas id = "branch-chart"></canvas>
+            <div class="gap-1"></div>
+            <p class="text-center">Total sales by Branch</p> 
+        </div>
+        
+    </div>
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  
+  <script>
+        var msc = document.getElementById('monthly-sales-chart');
+        var cgc = document.getElementById('customer-gender-chart');
+        var bc = document.getElementById('branch-chart');
+
+        new Chart(msc, {
+        type: 'line',
+        data: {
+        datasets: [{
+            label: 'Total Monthly Sales',
+            data: {{monthly_total_sales | safe}},
+             backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            
+            ],
+        }],
+        labels: {{months |safe}}
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+        });
+        
+        new Chart(cgc, {
+            type: 'pie',
+            data: {
+            datasets: [{
+                label: 'Customers By Gender',
+                data: {{customers_by_gender | safe}},
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                
+                ],
+                hoverOffset: 4
+            }],
+            labels: {{customer_gender_labels |safe}}
+            },
+            
+        }); 
+
+         new Chart(bc, {
+            type: 'doughnut',
+            data: {
+            datasets: [{
+                label: 'Sales by Branch',
+                data: {{branch_sales | safe}},
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(166, 162, 235)',
+                
+                ],
+                hoverOffset: 4
+            }],
+            labels: {{branch_labels |safe}}
+            },
+           
+        
+            
+        }); 
+
+  </script>
+{% endblock %}

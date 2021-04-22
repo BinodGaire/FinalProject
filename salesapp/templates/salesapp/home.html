@@ -1,0 +1,173 @@
+{% extends 'backend_base.html' %}
+
+
+
+{% block content %}
+  <h4 class="text-center"> 2019 Sales Data </h4>
+  <div id="container" >
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <canvas id = "monthly-sales-chart"></canvas>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <canvas id = "categories-sales-chart"></canvas>
+        </div>
+    </div>
+    <div class="gap-3"></div>
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <canvas id = "customer-type-chart"></canvas>
+            <div class="gap-1"></div>
+            <p class="text-center">Total sales by Customer Type</p>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <canvas id = "customer-gender-chart"></canvas>
+            <div class="gap-1"></div>
+             <p class="text-center">Total sales by Customer Gender</p>
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <canvas id = "payment-method-chart"></canvas>
+            <div class="gap-1"></div>
+             <p class="text-center">Total sales by Payment methods</p>
+        </div>
+    </div>
+    
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  
+  <script>
+        var msc = document.getElementById('monthly-sales-chart');
+        var csc = document.getElementById('categories-sales-chart');
+        var ctc = document.getElementById('customer-type-chart');
+        var cgc = document.getElementById('customer-gender-chart');
+        var pmc = document.getElementById('payment-method-chart');
+
+        new Chart(msc, {
+        type: 'bar',
+        data: {
+        datasets: [{
+            label: 'Total Monthly Sales',
+            data: {{monthly_total_sales | safe}},
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(215, 203, 207, 0.2)',
+            'rgba(225, 203, 207, 0.2)',
+            'rgba(117, 203, 207, 0.2)',
+            'rgba(99, 203, 207, 0.2)',
+            'rgba(55, 203, 207, 0.2)',
+            'rgba(240, 203, 207, 0.2)',
+            ],
+        }],
+        labels: {{months |safe}}
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+        });
+
+        new Chart(csc, {
+           type: 'bar',
+            data: {
+            datasets: [{
+                label: 'Total Sales By Product Categories',
+                data: {{sales_by_categories | safe}},
+                            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                
+                ],
+            }],
+            labels: {{categories |safe}}
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        
+            
+        });
+
+        new Chart(ctc, {
+            type: 'pie',
+            data: {
+            datasets: [{
+                label: 'Customer Types',
+                data: {{customer_types | safe}},
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                
+                ],
+                hoverOffset: 4
+            }],
+            labels: {{customer_labels |safe}}
+            },
+           
+        
+            
+        }); 
+
+
+        new Chart(cgc, {
+            type: 'pie',
+            data: {
+            datasets: [{
+                label: 'Customers By Gender',
+                data: {{customers_by_gender | safe}},
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                
+                ],
+                hoverOffset: 4
+            }],
+            labels: {{customer_gender_labels |safe}}
+            },
+                 
+        }); 
+
+
+        new Chart(pmc, {
+            type: 'doughnut',
+            data: {
+            datasets: [{
+                label: 'Payment Methods',
+                data: {{payment_methods | safe}},
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(150, 162, 235)',
+                ],
+                hoverOffset: 4
+            }],
+            labels: {{payment_method_labels |safe}}
+            },
+           
+        
+            
+        }); 
+
+  </script>
+{% endblock %}
