@@ -1,0 +1,231 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+  transition: all ease-in 0.2s;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+/*theme colors*/
+.theme-color-primary {
+  color:rgba(3, 161, 169,0.8);
+}
+.bg-emr{
+  background-color:rgba(3, 161, 169, 0.8);
+}
+/*typography */
+.font-size-125 {
+  font-size: 1.25em;
+}
+.font-size-15 {
+  font-size: 1.5em;
+}
+.font-size-175 {
+  font-size: 1.75em;
+}
+.font-size-2 {
+  font-size: 2em;
+}
+.font-size-25 {
+  font-size: 2.5em;
+}
+.font-size-275 {
+  font-size: 2.75em;
+}
+.font-size-3 {
+  font-size: 3em;
+}
+.font-weight-bold {
+  font-weight: bold;
+}
+.bolder {
+  font-weight: bolder;
+}
+/* letter spacing*/
+.letter-spacing-05 {
+  letter-spacing: 0.5px;
+}
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2px;
+}
+.letter-spacing-3 {
+  letter-spacing: 3px;
+}
+
+.line-height-3 {
+  line-height: 2em;
+}
+.border-radius-0 {
+  border-radius: 0 !important;
+}
+/* gap */
+.gap{
+  display: block;
+}
+.gap-1 {
+  height: 1em;
+}
+.gap-2 {
+  height: 2em;
+}
+.gap-3 {
+  height: 3em;
+}
+.gap-4 {
+  height: 4em;
+}
+.gap-5 {
+  height: 5em;
+}
+.gap-6 {
+  height: 6em;
+}
+.gap-7 {
+  height: 7em;
+}
+.gap-8 {
+  height: 8em;
+}
+.gap-9 {
+  height: 9em;
+}
+.gap-10 {
+  height: 10em;
+}
+/* background-colors */
+.bg-black{
+  background-color:rgba(0,0,0,1);
+}
+.bg-white{
+  background-color: rgba(256, 256, 256, 1);
+}
+
+/* font-colors */
+.font-white{
+  color: rgba(256, 256, 256, 1);
+}
+.font-black{
+  color:rgba(0,0,0,1);
+}
+
+.base-container{
+  height:100%;
+}
+.base-row{
+  height:100%;
+  
+}
+/* home page background image */
+.background{
+    position: relative;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    height: 100%;
+}
+
+.layer{
+  background-color: rgba(38, 67, 121, 0.7);
+  
+  width: 100%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+}
+
+.caption-head{
+  font-family: 'Roboto';
+  font-weight: bolder;
+  font-size: 2em;
+  letter-spacing: 1px;
+  color:rgba(3, 161, 169, 0.8)
+}
+#loginTitle{
+  font-size:1.5em;
+  color:rgba(3, 161, 169, 0.8)
+}
+
+/*login form */
+.login-form{
+    text-align: center;
+    position: absolute;
+    background-color: rgba(256,256,256,256);
+    width: 45%;
+    top: 10%;
+}
+/* login form fields */
+/* .username-field, .password-field{
+  width:350px;
+  padding:0.5em;
+  background-color:rgba(0,0,0,0.1);
+  border-color: rgba(256,256,256,256);
+  border-style: hidden;
+} */
+.username-section> input , .password-section>input{
+  width:350px;
+  padding:0.5em;
+  background-color:rgba(0,0,0,0.1);
+  border-color: rgba(256,256,256,256);
+  border-style: hidden;
+}
+
+.login-btn{
+  width:350px;
+  background-color:rgba(3, 161, 169, 0.8);
+  padding: 0.5em;
+  color: rgba(256,256,256,256);
+  border-style: hidden;
+}
+
+/* home navigation section */
+.nav-list-item{
+  border-bottom: 1px solid rgba(256, 256, 256, 1);
+}
+.nav-list-item a{
+  
+  display:block;
+  padding:1em;
+  color:rgba(256,256,256,1);
+  
+}
+.nav-list-item>a:hover{
+ background-color:rgb(3, 161, 169, 1);
+ text-decoration: none;
+ color:rgba(256,256,256,1);
+}
+
+/* generic emr button */
+.emr-btn{
+  background-color:rgba(3, 161, 169,0.8)!important;
+  color:rgba(256,256,256,1)!important;
+}
+.emr-btn:hover{
+  background-color:rgba(3, 161, 169, 0.8)!important;
+}
+
+
+/* appointments section */
+.appointment-container{
+  height:100vh;
+}
+.appointment-section{
+  height:40%;
+  padding:0 1em;
+  overflow-y: scroll;
+}
+
+/* scheduling each date */
+.my-grid{
+  
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid-item{
+  
+  width:13.6%;
+  margin:0.2em;
+}
